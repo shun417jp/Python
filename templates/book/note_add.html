@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}ノートを追加{% endblock %}
+{% block h1 %}ノートを追加{% endblock %}
+
+{% block content %}
+  <h2>{{ book.title }} にノートを追加</h2>
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">保存</button>
+  </form>
+
+  <p><a href="{% url 'detail-book' pk=view.kwargs.book_id %}">戻る</a></p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}ノート一覧{% endblock %}
+{% block h1 %}ノート一覧{% endblock %}
+
+{% block content %}
+  {% if notes %}
+    <ul>
+      {% for note in notes %}
+        <li>
+          <h3>{{ note.title }}</h3>
+          <p>{{ note.text|truncatewords:10 }}</p>
+          <p><strong>書籍:</strong> <a href="{% url 'detail-book' pk=note.book.id %}">{{ note.book.title }}</a></p>
+          <p>作成日: {{ note.created_at }}</p>
+          <a href="{% url 'note-detail' pk=note.id %}" class="btn btn-outline-info btn-sm">閲覧</a>  <!-- 修正: 「編集」→「閲覧」 -->
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>ノートはありません。</p>
+  {% endif %}
+{% endblock %}

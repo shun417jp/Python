@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}ノート詳細{% endblock %}
+{% block h1 %}ノート詳細{% endblock %}
+
+{% block content %}
+  <h2>{{ note.title }}</h2>
+  
+  <p><strong>書籍:</strong> <a href="{% url 'detail-book' pk=note.book.id %}">{{ note.book.title }}</a></p>
+  <p>{{ note.content }}</p>  <!-- content に修正 -->
+  <p>作成日: {{ note.created_at }}</p>
+
+  <a href="{% url 'update-note' pk=note.id %}" class="btn btn-outline-primary btn-sm">編集</a>
+  <a href="{% url 'delete-note' pk=note.id %}" class="btn btn-outline-danger btn-sm">削除</a>
+  <a href="{% url 'note-list' %}" class="btn btn-outline-secondary btn-sm">戻る</a>
+{% endblock %}
