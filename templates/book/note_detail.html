@@ -7,7 +7,7 @@
   
   <p><strong>書籍:</strong> <a href="{% url 'detail-book' pk=note.book.id %}">{{ note.book.title }}</a></p>
   <p>{{ note.content }}</p>  <!-- content に修正 -->
-  <p>作成日: {{ note.created_at }}</p>
+  <p>作成日時: {{ note.created_at }}</p>
 
   <a href="{% url 'update-note' pk=note.id %}" class="btn btn-outline-primary btn-sm">編集</a>
   <a href="{% url 'delete-note' pk=note.id %}" class="btn btn-outline-danger btn-sm">削除</a>
